@@ -1,0 +1,18 @@
+-- https://www.postgresqltutorial.com/postgresql-foreign-key/
+
+CREATE TABLE IF NOT EXISTS BOOK_DETAIL (
+    ID SERIAL PRIMARY KEY
+    , CONTENT TEXT
+);
+
+CREATE TABLE IF NOT EXISTS BOOKS (
+    ID SERIAL PRIMARY KEY
+    , TITLE  VARCHAR(200)
+    , AUTHOR VARCHAR(200)
+    , BOOK_DETAIL_ID INT
+    , UNIQUE(BOOK_DETAIL_ID)
+    , CONSTRAINT fk_book_detail
+        FOREIGN KEY(BOOK_DETAIL_ID)
+            REFERENCES BOOK_DETAIL(ID)
+            ON DELETE CASCADE
+);

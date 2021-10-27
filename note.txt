@@ -1,0 +1,11 @@
+# gradle buld, run ...
+.\gradlew clean build -x test
+.\gradlew bootRun
+java -jar .\build\libs\tdbook-0.0.1-SNAPSHOT.jar
+
+
+# Run flyway
+.\gradlew flywayMigrate -i
+
+#logging tutorial
+https://dzone.com/articles/configuring-logback-with-spring-boot
